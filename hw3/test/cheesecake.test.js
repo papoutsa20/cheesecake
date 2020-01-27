@@ -24,6 +24,7 @@ test('pressing order button', () => {
 	document.body.innerHTML = html;
 	const $ = require('jquery');
 	//test 2
+	expect($("table").length === 1);
 	$("#order").click();
 	expect($("table").length === 0);
 });
