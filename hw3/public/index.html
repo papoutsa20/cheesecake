@@ -1,0 +1,81 @@
+<!--Hw2 for CS341 spring 2020 by Stelios Papoutsakis, date 1/27/2020-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>cheese cake</title>
+		<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+		<link href="./stylesheets/papoutsa20.css" rel="stylesheet" type="text/css"> 
+		<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="./javascripts/cheesecake.js"></script>
+			</head>
+	<body>
+		<!--nav area code-->
+		<div class="nav-area">
+			<h1 id="pagetitle">Cheesecake Order Form</h1>
+		</div>
+		<div class="page-body">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg/240px-Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg">
+			<div class="element-wrap">
+				<h3>Quantity Topping</h3>
+				<!-- table is used to place radio and select side by side-->
+				<table>
+					<tr>
+						<td></td>
+						<td><input type="radio" name="cheesetype" value="Plain" id="plainradio" checked><label for="plainradio">Plain</label></td>
+					</tr>
+					<tr>
+						<td>
+							<select>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</td>
+						<td><input type="radio" name="cheesetype" value="Cherry" id="cherryradio"><label for="cherryradio">Cherry</label></td>
+					<tr>
+						<td></td>
+						<td><input type="radio" name="cheesetype" value="Chocolate" id="chocolateradio"><label for="chocolateradio">Chocolate</label></td>
+					</tr>
+				</table>
+				<!-- Extra Notes and orders last month listed code here--> 
+				<h3>Notes:</h3>
+				<textarea  id="extranotes" rows="4" cols="50" placeholder="Enter any special instructions here."></textarea>
+				<br />
+				<button id="order">Order</button>
+				<br />
+			</div>
+			<div class="old-orders">
+				<div class="dropdown">
+				<!--table to place h1 and button side by side-->
+				<!-- Following code was taken from w3 school, external citation is in css file-->
+				<table>
+					<tr>
+						<td><h1>Orders For</h1></td>
+						<td><button class="dropbtn">Jan</button>
+  						<div class="dropdown-content">
+    						<a>Jan</a>
+    						<a>Feb</a>
+    						<a>Mar</a>
+							<a>Apr</a>
+    						<a>May</a>
+    						<a>Jun</a>
+							<a>Jul</a>
+    						<a>Sep</a>
+    						<a>Oct</a>
+							<a>Nov</a>
+    						<a>Dec</a>
+ 						 </div>
+						</td>
+					 </tr>
+					</table>
+					</div>
+				<ul>	
+					<li>11 cherry</li>
+					<li>17 chocolate</li>
+					<li>31 plain</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

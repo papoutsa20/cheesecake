@@ -1,0 +1,192 @@
+/*
+Css style file written by Stelios Papoutsakis
+Hw2 Cs341 Spring 2020
+*/
+/**
+External Citation
+	Date: 1/16/2020
+	Problem: Need a way to resize divs to achieve layout I wanted 
+	Resource: https://markheath.net/post/customize-radio-button-cshttps://www.whitebyte.info/programming/css/how-to-make-a-div-take-the-remaining-heights
+	Solution: Used some css rules from this page to achieve my layout
+**/
+
+body {
+	width: 100%;
+	margin: 0px;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	background-image: url(https://cdn.shopify.com/s/files/1/1143/5434/products/TripleDots__blue-on-white_D_for_web_b2ecb64c-788c-424e-98f2-f72aa323de5c.jpg?v=157074201)
+}
+
+/*
+This css code is to format the two main divs, the "nav div" and "rest of elements in body" div
+*/
+div.nav-area {
+	height: 10%;
+	background-color: orange
+}
+div.page-body {
+	margin: auto;
+	width: 90%;
+	opacity: .95;
+	background-color: #FAFAFA;
+}
+/*****************************/
+/*
+Further css to center the page body elements, as well as format the table and img
+*/
+div.element-wrap, div.old-orders {
+	text-align: center;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+img {
+	display: block; 
+	border-radius: 25px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width 50%;
+}
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+/******************************/
+/*
+This is some miscellaneous rules on the body elements, stuff like margins, font, removing "dots" for list
+*/
+select {
+	margin-right: 5px;
+}
+#extranotes {
+ border-radius: 5px;
+}
+ul {
+	width: 100%;
+	list-style-type:none;
+}
+h1,h3 {
+	font-family: 'Shadows Into Light', cursive;
+}
+/*Normaily I wouldn't change the font size on h3 tags and I would use a higher tag (E.g. "h2" or "h1")
+But I am doing this to match the style of the web page without css as per the homework assigment
+*/
+h3 {
+	font-size: 40px;
+}
+/**
+External Citation
+	Date: 1/22/2020
+	Problem: the hidden bullet points were still taking up space and  making the list off center 
+	Resource: https://stackoverflow.com/questions/4373046/css-control-space-between-bullet-and-li
+	Solution: This stack overflow answer helped me fix this issue after so much time!
+**/
+ li {
+	width: 100%; 
+	position: relative;
+  	left: -40px;
+	font-size: 30px;
+	font-family: 'Shadows Into Light', cursive;
+}
+#order {
+	margin-top: 10px;
+	background-color: #ddd;
+	padding: 5px 10px;
+}
+#pagetitle {
+	text-align:center;
+}
+/********************************/
+/*
+This is used to format the radio buttons
+*/
+/**
+External Citation
+	Date: 1/16/2020
+	Problem: Wanted to make ugly radio buttons look better
+	Resource: https://markheath.net/post/customize-radio-button-css
+	Solution: I used the given tutorial from this post
+**/
+input[type="radio"] {
+  	opacity: 0;
+	position: fixed;
+ 	width: 0;
+}
+ td > label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+	float: left;
+    border: 2px solid #444;
+    border-radius: 4px;
+	width: 100%;
+}
+input[type="radio"]:checked + label {
+    background-color:#bfb;
+    border-color: #4c4;
+}
+td > label:over {
+  background-color: #dfd;
+}
+/********************************/
+/**
+External Citation
+	Date: 1/22/2020
+	Problem: I needed css and html code to create a drop down menu when the user hovers over a button
+	Resource: https://www.w3schools.com/howto/howto_css_dropdown.asp
+	Solution: I used this w3schools css tutorial with some tweaks to achieve my hover menu 
+**/
+ 
+.dropbtn {
+  margin-top: 10px;    
+  background-color: transparent;
+  color: black;
+  margin: auto;
+  font-family: 'Shadows Into Light', cursive;
+  padding: 3px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2em;
+  border: ridge;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  	max-height: 130px;
+	overflow: scroll;
+	overflow-x: hidden;
+ 	display: none;
+  	position: absolute;
+  	background-color: #f1f1f1;
+  	min-width: 71px;
+  	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  	z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #CCC;}
+
