@@ -1,10 +1,9 @@
 /**
 Javascript file for the cheesecake.html file
-This is for CS341 HW2, BY Stelios Papoutsakis
+This is for CS341 HW3, BY Stelios Papoutsakis 02/04/2020
 The purpose of this file is to add functionailty such as form validation,
 and a hover drop down menu
 **/
-
 // function is called when doc is ready
 $(document ).ready(function () {
 	$("#order").click(function () {

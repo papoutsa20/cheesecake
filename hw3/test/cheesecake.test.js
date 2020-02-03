@@ -1,8 +1,7 @@
 /**
-CS 341 HW 3 Spring 2020
+CS 341 HW 3 02/04/2020 
 by Stelios Papoutsakis
-Test that if order button is clicked,
-the table tag that has the selector and radio buttons
+tests that check the text of the h1 and button
 **/
 
 var fs = require('fs');
@@ -18,12 +17,11 @@ test('test header 1 value', () => {
 
 });
 
-test('pressing order button', () => {
+test('check button text', () => {
 	var html = fs.readFileSync('public/index.html', 'utf8')
 	expect(html).toEqual(expect.anything());
 	document.body.innerHTML = html;
 	const $ = require('jquery');
 	//test 2
-	$("#order").click();
 	expect($("#order").text()).toBe("Order");
 });
