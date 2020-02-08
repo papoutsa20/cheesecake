@@ -30,6 +30,27 @@ $(document ).ready(function () {
 	    });
 	       //selects option from drop down and replaces the name in header for orders
 	       $(".dropdown-content > a").click( function () {
+			   $.post("http://localhost:3000/orders", (data) => {
+				  let num_cherry = num_plain = num_chocolate = 0;
+				  for (let i = 0; i < data.data.length; i++) {
+					  switch (data.data[i].topping) {
+					  	case 'chocolate':
+							  num_chocolate+=data.data[i].quantity;
+							  break;
+						case 'plain':
+							  num_plain+=data.data[i].quantity;
+							  break;
+						case 'cherry':
+							  num_cherry+=data.data[i].quantity;
+							  break;
+						default:
+							  console.log('warning, topping not recongized');
+					 }
+					}
+					 $('#cherry_count').text(num_cherry + ' cherry');
+					 $('#chocolate_count').text(num_chocolate + ' chocolate');
+					 $('#plain_count').text(num_plain + ' plain');
+				});
 	           $(".dropbtn").text($(this).text());
 	       
 	       });
