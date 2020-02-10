@@ -55,11 +55,18 @@ test('Return Json should match expected Json', done  => {
 
   ];
 		
+		/**
+		External Citation
+		Date: 2/10/2020
+		Problem: Need a way to make a post call in node.js 
+		Resource: https://stackoverflow.com/questions/19539391/how-to-get-data-out-of-a-node-js-http-get-request 
+		Solution: Used this answer to learn how to construct data with the http.get() function 
+		**/
+
 		 http.get(options, (resp) => {
 			   //responce code should be 200 for 'OK'
 			   expect(resp.statusCode).toBe(200);
 		 	   let data = '';
-		 	   	//chunk of data has been received 
 		 	   	resp.on('data', (chunk) => {
 		 	   		data += chunk;
 		 	   	});
@@ -69,6 +76,7 @@ test('Return Json should match expected Json', done  => {
 		 	   		let data_recived = JSON.parse(data);
 					// tests to see if shape of response matches expected
 			 		expect(data_recived.length).toBe(expected_json.length);
+					//compare each entry in json with expected json 
 					for (let i = 0; i < data_recived.length; i++) {
 						expect(expected_json[i].topping).toBe(data_recived[i].topping);
 						expect(expected_json[i].quantity).toBe(data_recived[i].quantity);
@@ -77,7 +85,6 @@ test('Return Json should match expected Json', done  => {
 		 	   	});
  	 });
 });
-
 
 
 
