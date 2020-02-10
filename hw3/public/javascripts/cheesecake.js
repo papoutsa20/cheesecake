@@ -32,16 +32,16 @@ $(document ).ready(function () {
 	       $(".dropdown-content > a").click( function () {
 			   $.post("http://localhost:3000/orders", (data) => {
 				  let num_cherry = num_plain = num_chocolate = 0;
-				  for (let i = 0; i < data.data.length; i++) {
-					  switch (data.data[i].topping) {
+				  for (let i = 0; i < data.length; i++) {
+					  switch (data[i].topping) {
 					  	case 'chocolate':
-							  num_chocolate+=data.data[i].quantity;
+							  num_chocolate+=data[i].quantity;
 							  break;
 						case 'plain':
-							  num_plain+=data.data[i].quantity;
+							  num_plain+=data[i].quantity;
 							  break;
 						case 'cherry':
-							  num_cherry+=data.data[i].quantity;
+							  num_cherry+=data[i].quantity;
 							  break;
 						default:
 							  console.log('warning, topping not recongized');

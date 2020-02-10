@@ -56,6 +56,7 @@ test('Return Json should match expected Json', done  => {
   ];
 		
 		 http.get(options, (resp) => {
+			   //responce code should be 200 for 'OK'
 			   expect(resp.statusCode).toBe(200);
 		 	   let data = '';
 		 	   	//chunk of data has been received 
@@ -67,11 +68,10 @@ test('Return Json should match expected Json', done  => {
 					// only care about data parameter in json
 		 	   		let data_recived = JSON.parse(data);
 					// tests to see if shape of response matches expected
-					//expect(data_recived.data).toBe(expect.anything());
-			 		expect(data_recived.data.length).toBe(expected_json.length);
-					for (let i = 0; i < data_recived.data.length; i++) {
-						expect(expected_json[i].topping).toBe(data_recived.data[i].topping);
-						expect(expected_json[i].quantity).toBe(data_recived.data[i].quantity);
+			 		expect(data_recived.length).toBe(expected_json.length);
+					for (let i = 0; i < data_recived.length; i++) {
+						expect(expected_json[i].topping).toBe(data_recived[i].topping);
+						expect(expected_json[i].quantity).toBe(data_recived[i].quantity);
 					}
 		 	   	 	done();
 		 	   	});

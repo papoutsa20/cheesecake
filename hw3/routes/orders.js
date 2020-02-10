@@ -6,8 +6,8 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/', function(req, res, next) {
-  res.json({
-  data : [
+  res.json(
+   [
 		{ 
 			"topping": "cherry",
 			"quantity": 2
@@ -33,7 +33,7 @@ router.post('/', function(req, res, next) {
 			"quantity": 3
 		}
 
-  ]});
+  ]);
  });
 
 module.exports = router;
