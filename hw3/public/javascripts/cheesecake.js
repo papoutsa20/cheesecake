@@ -48,6 +48,7 @@ $(document ).ready(function () {
 							  console.log('warning, topping not recongized');
 					 }
 					}
+				    //updating dom
 					 $('#cherry_count').text(num_cherry + ' cherry');
 					 $('#chocolate_count').text(num_chocolate + ' chocolate');
 					 $('#plain_count').text(num_plain + ' plain');

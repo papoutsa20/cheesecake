@@ -72,9 +72,7 @@ test('Return Json should match expected Json', done  => {
 		 	   	});
 				//when this fires, all the data has been received
 		 	   	resp.on('end', () => {
-					// only care about data parameter in json
 		 	   		let data_recived = JSON.parse(data);
-					// tests to see if shape of response matches expected
 			 		expect(data_recived.length).toBe(expected_json.length);
 					//compare each entry in json with expected json 
 					for (let i = 0; i < data_recived.length; i++) {
