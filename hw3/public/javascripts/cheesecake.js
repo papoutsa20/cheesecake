@@ -27,22 +27,30 @@ $(document ).ready(function () {
 	                  $(".element-wrap").append($("<p></p>").text(notes));
 	              }
 	          }
-	    });
+			  // sending post request to neworders
+			 $.post("http://localhost:3000/neworders", {
+				 'quanity': quanity, 
+				 'topping': type, 
+				 'notes': notes  
+	    	});
+		  });
 	       //selects option from drop down and replaces the name in header for orders
 	       $(".dropdown-content > a").click( function () {
-			   $.post("http://localhost:3000/orders", (data) => {
+			   let month_str = $(this).text();
+			   $.post("http://localhost:3000/orders",{'month': month_str}, (data) => {
 				   // creating varibales to hold the sum of all the types of orders
 				  let num_cherry = num_plain = num_chocolate = 0;
 				  for (let i = 0; i < data.length; i++) {
-					  switch (data[i].topping) {
+					  //using toLowerCase because I put the data in all caps :(
+					  switch (data[i].TOPPING.toLowerCase()) {
 					  	case 'chocolate':
-							  num_chocolate+=data[i].quantity;
+							  num_chocolate+=data[i].QUANTITY;
 							  break;
 						case 'plain':
-							  num_plain+=data[i].quantity;
+							  num_plain+=data[i].QUANTITY;
 							  break;
 						case 'cherry':
-							  num_cherry+=data[i].quantity;
+							  num_cherry+=data[i].QUANTITY;
 							  break;
 						default:
 							  console.log('warning, topping not recongized');
@@ -53,7 +61,7 @@ $(document ).ready(function () {
 					 $('#chocolate_count').text(num_chocolate + ' chocolate');
 					 $('#plain_count').text(num_plain + ' plain');
 				});
-	           $(".dropbtn").text($(this).text());
+	           $(".dropbtn").text(month_str);
 	       
 	       });
 	   

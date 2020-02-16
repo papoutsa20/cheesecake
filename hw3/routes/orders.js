@@ -4,37 +4,16 @@ HW4 by Stelios Papoutsakis CS 341 02/10/2020
 */
 var express = require('express');
 var router = express.Router();
-
+const db = require('./dbms');
 router.post('/', function(req, res, next) {
-	//responds with json	
-  res.json(
-   [
-		{ 
-			"topping": "cherry",
-			"quantity": 2
-		},
-	    { 
-			"topping": "chocolate",
-			"quantity": 8
-		},
-	    { 
-			"topping": "cherry",
-			"quantity": 90
-		},
-	    { 
-			"topping": "plain",
-			"quantity": 4
-		},
-	    { 
-			"topping": "cherry",
-			"quantity": 1
-		},
-	    { 
-			"topping": "cherry",
-			"quantity": 3
+	let query_str = "SELECT * FROM ORDERS WHERE Month = '"+ req.body.month + "';";
+	db.dbquery(query_str, (err, result) => {
+		if (!err) {
+			res.send(result);	
+		} else {
+			console.log(err);
 		}
-
-  ]);
- });
+	});			
+});
 
 module.exports = router;

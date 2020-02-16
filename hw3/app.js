@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 
 /*Code Stelios wrote*/
 var jsonRouter = require('./routes/orders');
-
+var newOrderRouter = require('./routes/neworders');
 var app = express();
 
 // view engine setup
@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //Code Stelios Wrote
 app.use('/orders', jsonRouter);
-
+app.use('/neworders', newOrderRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
