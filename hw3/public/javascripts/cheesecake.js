@@ -28,11 +28,13 @@ $(document ).ready(function () {
 	              }
 	          }
 			  // sending post request to neworders
+			  // on response, generate click to update order count
 			 $.post("http://localhost:3000/neworders", {
 				 'quanity': quanity, 
 				 'topping': type, 
 				 'notes': notes  
-	    	});
+	    	}, (resp) => {$("#"+new Date().toLocaleString('default', { month: 'short' })).click();}) 
+;
 		  });
 	       //selects option from drop down and replaces the name in header for orders
 	       $(".dropdown-content > a").click( function () {
@@ -64,8 +66,8 @@ $(document ).ready(function () {
 	           $(".dropbtn").text(month_str);
 	       
 	       });
-	   
-	   
+	  // call the onclick function for the current month , so the orders are updated on refresh
+	  $("#"+new Date().toLocaleString('default', { month: 'short' })).click(); 
 		   
-	   });
+ });
 

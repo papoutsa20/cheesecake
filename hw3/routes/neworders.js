@@ -12,7 +12,15 @@ router.post('/', function(req, res, next) {
 	let orderid;
 	db.dbquery(query_str, (err, result) => {
 		if (!err) {
-			orderid = result[0]['COUNT(*)'];;
+			orderid = result[0]['COUNT(*)'];
+			/**
+		External Citation
+			Date: 2/17/2020
+			Problem: Wanted a way to get the current 3 letter month and day to put into data base 
+			Resource: https://www.valentinog.com/blog/datetime/
+			Solution: Used code in this page to extract the 3 letter current month and day of the month 
+			**/
+
 			let day = new Intl.DateTimeFormat("en-US",{day: 'numeric'}).format(new Date());
 			let month =  new Intl.DateTimeFormat("en-US",{month: 'short'}).format(new Date()).toUpperCase();
 			let topping_uppercase = req.body.topping.toUpperCase();
